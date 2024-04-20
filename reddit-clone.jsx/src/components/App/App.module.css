@@ -5,6 +5,7 @@
   /* text-align: center; */
 }
 header {
+  grid-area: head;
   margin: 0;
   background-color: red;
   width: 100%;
@@ -14,4 +15,38 @@ header {
   width: 10%;
   padding: 0.5em;
   font-size: 0.5em;
+}
+
+/* sidebars */
+
+.linksSidebar {
+  grid-area: linksSidebar;
+  /* TODO: update to color scheme*/
+  background-color: blue;
+}
+
+.communitiesSidebar {
+  grid-area: communitiesSidebar;
+  background-color: blue;
+}
+
+.contentContainer {
+  display: grid;
+  grid-template-areas:
+    "head head head"
+    "linksSidebar mainContainer communitiesSidebar"
+    "footer footer footer";
+  grid-template-rows: 5rem 40rem 5rem;
+  grid-template-columns: 1fr 3.5fr 1fr;
+}
+/* main */
+.mainContainer {
+  grid-area: mainContainer;
+  /* TODO: update to color scheme*/
+  background-color: pink;
+}
+
+footer {
+  grid-area: footer;
+  background-color: green;
 }
