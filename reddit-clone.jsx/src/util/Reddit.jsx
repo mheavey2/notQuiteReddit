@@ -1,6 +1,6 @@
 // refer to https://github.com/reddit-archive/reddit/wiki/OAuth2 for authorisation parameter variables
 
-let userToken;
+let accessToken;
 let userId;
 const CLIENT_ID = "lxTjXwgGGeFcYktpZ2hEgA";
 const TYPE = "code";
@@ -13,6 +13,7 @@ const Reddit = {
   // step 1: get access token
 
   getAuth() {
+    // get unigue ID for each authorisation request instance
     const UniqueAuthInstanceId = Math.random();
     console.log(
       `The unique instance ID for this authentication is: ${UniqueAuthInstanceId}`
@@ -22,6 +23,13 @@ const Reddit = {
       "https://www.reddit.com/api/v1/authorize?client_id=${CLIENT_ID}&response_type=${TYPE}&state=${RANDOM_STRING}&redirect_uri=${REDIRECT_URI}&duration=${DURATION}&scope=${SCOPE}";
     window.location = authorisationURL;
     console.log("authentication received");
+  },
+
+  // check if authentication is already available
+  checkAuthentication() {
+    if (accessToken) {
+      return accessToken;
+    }
   },
 
   // step 2: get username data from Reddit
