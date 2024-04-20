@@ -1,5 +1,6 @@
 import styles from "./searchBar.module.css";
 import { useState } from "react";
+import Reddit from "../../util/Reddit";
 
 function SearchBar(props) {
   //store input state
@@ -9,12 +10,12 @@ function SearchBar(props) {
   const inputChange = (event) => {
     setSearchInput(event.target.value);
   };
-
+  /*
   //search function for search button
   const search = () => {
     props.onSearch(searchInput);
   };
-
+*/
   return (
     <>
       <div className={styles.searchBar}>
